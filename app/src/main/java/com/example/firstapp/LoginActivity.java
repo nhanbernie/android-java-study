@@ -1,5 +1,4 @@
 package com.example.firstapp;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 // Import View Binding
 import com.example.firstapp.databinding.ActivityLoginBinding;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextEmail;
     private EditText editTextPassword;
@@ -35,20 +34,25 @@ public class LoginActivity extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
 
-
         // Binding View with View Binding
+        // We can use with Fragment and RecyclerView.Adapter, Dialog/BottomSheet
         editTextEmail = binding.editTextEmail;
         editTextPassword = binding.editTextPassword;
         buttonSignIn = binding.buttonSignIn;
         textViewRegister = binding.textViewRegister;
         /*
-        // findViewById
+        // findViewById NOTE: type - safe
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonSignIn = findViewById(R.id.buttonSignIn);
         textViewRegister = findViewById(R.id.textViewRegister);
         */
 
+        //
+        buttonSignIn.setOnClickListener(this);
+        textViewRegister.setOnClickListener(this);
+
+        /*
         // Sign In
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,5 +78,24 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Đăng ký", Toast.LENGTH_SHORT).show();
             }
         });
+        */
     }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.buttonSignIn) {
+            String email = editTextEmail.getText().toString().trim();
+            String password = editTextPassword.getText().toString().trim();
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            } else {
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
+            }
+        } else if (id == R.id.textViewRegister) {
+            Toast.makeText(this, "Đăng ký", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
