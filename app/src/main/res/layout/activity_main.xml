@@ -1,64 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_light"
-    android:padding="24dp"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textViewWelcome"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome to App!"
+        android:text="Demo Activities"
         android:textColor="@color/text_primary"
-        android:textSize="28sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="100dp" />
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
 
     <TextView
-        android:id="@+id/textViewSuccess"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewInstruction"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="You have successfully logged in!"
-        android:textColor="@color/text_secondary"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWelcome"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Use the logout button in the top menu to sign out"
+        android:text="Tap to open activity, Long press for info"
         android:textColor="@color/text_secondary"
         android:textSize="14sp"
         android:gravity="center"
-        android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSuccess"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginBottom="16dp" />
 
-    <TextView
-        android:id="@+id/textViewName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="To Thien Nhan"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        android:textColor="@color/primary_blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLogout"
-        app:layout_constraintVertical_bias="0.4" />
+    <ListView
+        android:id="@+id/listViewActivities"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/divider_color"
+        android:dividerHeight="1dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
