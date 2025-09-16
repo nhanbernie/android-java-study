@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:padding="24dp">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Let's Sign you in"
+        android:textColor="@color/text_primary"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome Back ,"
+        android:textColor="@color/text_secondary"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+    <TextView
+        android:id="@+id/textViewMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You have been missed"
+        android:textColor="@color/text_secondary"
+        android:textSize="18sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWelcome" />
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/editTextEmail"
+        style="@style/LoginEditTextStyle"
+        android:hint="Email, phone &amp; username"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMissed" />
+
+    <!-- Password Input -->
+
+    <!-- Remember me & Forgot Password -->
+    <EditText
+        android:id="@+id/editTextPassword"
+        style="@style/LoginEditTextStyle"
+        android:layout_marginTop="12dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+    <CheckBox
+        android:id="@+id/checkBoxRemember"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Remember me"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+        app:layout_constraintEnd_toStartOf="@+id/textViewForgotPassword" />
+
+    <TextView
+        android:id="@+id/textViewForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password ?"
+        android:textSize="14sp"
+        android:textColor="@color/text_secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/checkBoxRemember"
+        app:layout_constraintBottom_toBottomOf="@+id/checkBoxRemember" />
+
+    <!-- Sign In Button -->
+    <Button
+        android:id="@+id/buttonSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Sign In"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:background="@drawable/button_primary"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxRemember" />
+
+    <!-- OR Divider -->
+    <View
+        android:id="@+id/viewLeftDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider_color"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewOr"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn"
+        android:layout_marginEnd="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewOr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  or  "
+        android:textSize="14sp"
+        android:textColor="@color/text_secondary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewLeftDivider"
+        app:layout_constraintBottom_toBottomOf="@+id/viewLeftDivider"/>
+
+    <View
+        android:id="@+id/viewRightDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider_color"
+        app:layout_constraintStart_toEndOf="@+id/textViewOr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewLeftDivider"
+        android:layout_marginStart="8dp"/>
+
+    <!-- Social Login Icons -->
+    <ImageButton
+        android:id="@+id/imageButtonGoogle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_google"
+        android:background="@drawable/social_icon_background"
+        android:scaleType="center"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonFacebook"
+        app:layout_constraintTop_toBottomOf="@+id/viewLeftDivider"
+        app:layout_constraintHorizontal_chainStyle="packed"/>
+
+    <ImageButton
+        android:id="@+id/imageButtonFacebook"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_facebook"
+        android:background="@drawable/social_icon_background"
+        android:scaleType="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonGoogle"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonApple"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonGoogle"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonGoogle"/>
+
+    <ImageButton
+        android:id="@+id/imageButtonApple"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_apple"
+        android:background="@drawable/social_icon_background"
+        android:scaleType="center"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonFacebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonGoogle"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonGoogle"/>
+
+    <!-- Sign Up -->
+    <TextView
+        android:id="@+id/textViewNoAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? "
+        android:textSize="14sp"
+        android:textColor="@color/text_secondary"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewRegister"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:id="@+id/textViewRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_blue"
+        app:layout_constraintStart_toEndOf="@+id/textViewNoAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewNoAccount"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewNoAccount"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
