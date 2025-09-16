@@ -9,6 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.content.res.Configuration;
 import androidx.appcompat.app.AppCompatActivity;
+// Import View Binding
+import com.example.firstapp.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -16,11 +18,15 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextPassword;
     private Button buttonSignIn;
     private TextView textViewRegister;
+    // Khai báo View Binding
+    private ActivityLoginBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        // Use View Binding not setContentView
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         if ((getResources().getConfiguration().uiMode &
                 Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES) {
@@ -30,11 +36,18 @@ public class LoginActivity extends AppCompatActivity {
         }
 
 
-        // Binding View
+        // Binding View with View Binding
+        editTextEmail = binding.editTextEmail;
+        editTextPassword = binding.editTextPassword;
+        buttonSignIn = binding.buttonSignIn;
+        textViewRegister = binding.textViewRegister;
+        /*
+        // findViewById
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonSignIn = findViewById(R.id.buttonSignIn);
         textViewRegister = findViewById(R.id.textViewRegister);
+        */
 
         // Sign In
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
-                
+
                 if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 } else {
@@ -54,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Xử lý click Register
+        // Register
         textViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
